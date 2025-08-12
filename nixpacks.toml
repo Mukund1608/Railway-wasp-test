@@ -1,0 +1,18 @@
+[phases.setup]
+nixPkgs = ["nodejs", "postgresql"]
+
+[phases.install]
+cmds = [
+  "curl -sSL https://get.wasp-lang.dev/installer.sh | sh",
+  "export PATH=$PATH:$HOME/.local/bin",
+  "wasp version"
+]
+
+[phases.build]
+cmds = [
+  "export PATH=$PATH:$HOME/.local/bin",
+  "wasp start"
+]
+
+[start]
+cmd = "export PATH=$PATH:$HOME/.local/bin && wasp start"
